@@ -131,7 +131,8 @@ public class DetailActivity extends ActionBarActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == android.R.id.home) {
-           finish();
+          // finish();
+            supportFinishAfterTransition();
         }
 
         return super.onOptionsItemSelected(item);

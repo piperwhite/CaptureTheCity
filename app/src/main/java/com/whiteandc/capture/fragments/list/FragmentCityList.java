@@ -2,10 +2,10 @@ package com.whiteandc.capture.fragments.list;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
@@ -21,7 +21,6 @@ public class FragmentCityList extends BasicFragment implements AdapterView.OnIte
 
 	private CityListAdapter adapter = null;
     private ListView list;
-    private ViewTreeObserver vto;
     private View rootView;
 
     @Override
@@ -39,6 +38,8 @@ public class FragmentCityList extends BasicFragment implements AdapterView.OnIte
         list.setAdapter(adapter);
         list.setOnItemClickListener(this);
 
+
+
         ((MonumentsActivity) mActivity).setToolbarTitle(MonumentList.getCityName());
 		return rootView;
 	}
@@ -46,19 +47,18 @@ public class FragmentCityList extends BasicFragment implements AdapterView.OnIte
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Monument monument= MonumentList.getList().get(position);
-        //((MonumentsActivity) mActivity).setCurrentMonumentId(monument.getName());
-        switchToDetailActivity(monument.getName());
+        View imgTransition= view.findViewById(R.id.item_img);
+        switchToDetailActivity(monument.getName(), imgTransition);
     }
 
-    public void switchToDetailActivity(String monumentId) {
+    public void switchToDetailActivity(String monumentId, View imgTransition) {
         Intent intent = new Intent(getActivity(), DetailActivity.class);
-      //  View ivItem_img= adapter.getView();
-     //   ActivityOptionsCompat options = ActivityOptionsCompat.
-      //          makeSceneTransitionAnimation(getActivity(), ivItem_img, "img_trans");
+        ActivityOptionsCompat options = ActivityOptionsCompat.
+                makeSceneTransitionAnimation(getActivity(), (View) imgTransition, "img_trans");
         Bundle b= new Bundle();
         b.putString("monumentId", monumentId);
         intent.putExtras(b);
-        startActivity(intent);
+        startActivity(intent, options.toBundle());
     }
 
 

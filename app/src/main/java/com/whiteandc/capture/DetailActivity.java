@@ -14,8 +14,6 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
 
-import com.afollestad.materialdialogs.MaterialDialog;
-import com.afollestad.materialdialogs.Theme;
 import com.whiteandc.capture.data.Monument;
 import com.whiteandc.capture.data.MonumentList;
 import com.whiteandc.capture.fragments.map.FragmentMapDetail;
@@ -174,12 +172,6 @@ public class DetailActivity extends ActionBarActivity {
     }
 
     private void showCustomWebView() {
-        new MaterialDialog.Builder(this)
-                .theme(Theme.LIGHT)
-                .title(R.string.congratulations)
-                .titleColorRes(R.color.primaryColor)
-                .content(getString(R.string.captured_msg) + " " + currentMonumentId)
-                .positiveText(R.string.ok)
-                .show();
+
     }
 }

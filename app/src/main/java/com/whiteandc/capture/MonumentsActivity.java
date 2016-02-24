@@ -16,8 +16,6 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
 
-import com.afollestad.materialdialogs.MaterialDialog;
-import com.afollestad.materialdialogs.Theme;
 import com.whiteandc.capture.data.MonumentLoader;
 import com.whiteandc.capture.fragments.list.FragmentCityList;
 import com.whiteandc.capture.fragments.map.FragmentMap;
@@ -173,13 +171,13 @@ public class MonumentsActivity extends ActionBarActivity {
     }
 
     private void showCustomWebView() {
-        new MaterialDialog.Builder(this)
-                .theme(Theme.LIGHT)
-                .title(R.string.congratulations)
-                .titleColorRes(R.color.primaryColor)
-                .content(getString(R.string.captured_msg) + " " + currentMonumentId)
-                .positiveText(R.string.ok)
-                .show();
+//        new MaterialDialog.Builder(this)
+//                .theme(Theme.LIGHT)
+//                .title(R.string.congratulations)
+//                .titleColorRes(R.color.primaryColor)
+//                .content(getString(R.string.captured_msg) + " " + currentMonumentId)
+//                .positiveText(R.string.ok)
+//                .show();
     }
 
 

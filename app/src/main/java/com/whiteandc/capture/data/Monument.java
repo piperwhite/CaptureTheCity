@@ -3,25 +3,24 @@ package com.whiteandc.capture.data;
 
 import android.graphics.drawable.Drawable;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.google.android.gms.maps.model.LatLng;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Monument implements Comparable{
 	
 	private String name= null;
 	private int[] photos= null;
 	private boolean captured= false;
-	private String capturedImg= null;
 	private String description=  "";
     private LatLng latLng= null;
     private Drawable mainPicture = null;
 
-	public Monument(String name, int[] photoList, boolean captured, String capturedImage, LatLng latLng, String description){
+	public Monument(String name, int[] photoList, boolean captured, LatLng latLng, String description){
 		this.name= name;
 		this.photos= photoList;
 		this.captured= captured;
-		this.capturedImg= capturedImage;
         this.description = description;
-		capturedImg= capturedImage;
         this.latLng= latLng;
 	}
 
@@ -42,12 +41,8 @@ public class Monument implements Comparable{
 	public boolean isCaptured() {
 		return captured;
 	}
-	public void setIsCaptured(boolean b) {
+	public void setCaptured(boolean b) {
 		captured=b;
-	}
-
-	public String getCapturedImg() {
-		return capturedImg;
 	}
 
     public Drawable getMainPicture() {
@@ -69,5 +64,6 @@ public class Monument implements Comparable{
     public void setLatLng(LatLng latLng) {
         this.latLng = latLng;
     }
+
 
 }

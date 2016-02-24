@@ -20,9 +20,10 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.config
+
         }
         debug {
             signingConfig signingConfigs.config
@@ -40,17 +41,16 @@ repositories {
 }
 
 dependencies {
-    compile 'com.android.support:appcompat-v7:23.1.0'
     compile project(':libraries:viewPagerIndicator')
     compile project(':libraries:opencv')
     compile 'com.getbase:floatingactionbutton:1.7.0'
-    compile 'com.commonsware.cwac:camera:0.6.+'
-    compile 'com.android.support:support-v13:22.0.0'
-    compile('com.github.afollestad.material-dialogs:core:0.8.5.0@aar') {
-        transitive = true
-    }
+    compile 'com.android.support:support-v13:23.1.+'
     compile 'com.google.android.gms:play-services:8.3.0'
     compile 'org.jbundle.util.osgi.wrapped:org.jbundle.util.osgi.wrapped.org.apache.http.client:4.1.2'
     compile 'com.jakewharton:butterknife:7.0.1'
-
+    compile 'com.squareup.okhttp3:okhttp:3.1.2'
+    compile 'com.fasterxml.jackson.core:jackson-core:2.7.1'
+    compile 'com.fasterxml.jackson.core:jackson-annotations:2.7.1'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.7.1'
+    compile 'com.android.support:multidex:1.0.0'
 }

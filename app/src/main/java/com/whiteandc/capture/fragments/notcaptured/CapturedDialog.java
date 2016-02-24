@@ -10,8 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.webkit.WebView;
 
-import com.afollestad.materialdialogs.MaterialDialog;
-import com.afollestad.materialdialogs.Theme;
 import com.whiteandc.capture.R;
 
 import java.io.BufferedReader;
@@ -41,12 +39,12 @@ public class CapturedDialog extends DialogFragment {
         } catch (InflateException e) {
             throw new IllegalStateException("This device does not support Web Views.");
         }
-        MaterialDialog dialog = new MaterialDialog.Builder(getActivity())
-                .theme(getArguments().getBoolean("dark_theme") ? Theme.DARK : Theme.LIGHT)
-                .title(R.string.congratulations).titleColor(R.color.primaryColor)
-                .customView(customView, false)
-                .positiveText(android.R.string.ok)
-                .build();
+//        MaterialDialog dialog = new MaterialDialog.Builder(getActivity())
+//                .theme(getArguments().getBoolean("dark_theme") ? Theme.DARK : Theme.LIGHT)
+//                .title(R.string.congratulations).titleColor(R.color.primaryColor)
+//                .customView(customView, false)
+//                .positiveText(android.R.string.ok)
+//                .build();
 
         final WebView webView = (WebView) customView.findViewById(R.id.webview);
         try {
@@ -71,7 +69,7 @@ public class CapturedDialog extends DialogFragment {
         } catch (Throwable e) {
             webView.loadData("<h1>Unable to load</h1><p>" + e.getLocalizedMessage() + "</p>", "text/html", "UTF-8");
         }
-        return dialog;
+        return null;
     }
 
     private String colorToHex(int color) {
